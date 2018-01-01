@@ -44,10 +44,18 @@
                                     <action selector="showNextQuestion:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gwG-z3-nRr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPQ-xx-tay">
+                                <rect key="frame" x="175" y="70" width="25" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="aPQ-xx-tay" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1Ow-tc-7VV"/>
                             <constraint firstItem="axN-6d-HM1" firstAttribute="top" secondItem="x0K-dU-gff" secondAttribute="bottom" constant="8" id="DpG-0Q-ik5"/>
+                            <constraint firstItem="aPQ-xx-tay" firstAttribute="top" secondItem="x0K-dU-gff" secondAttribute="top" id="H9w-RN-5sV"/>
                             <constraint firstItem="x0K-dU-gff" firstAttribute="centerX" secondItem="axN-6d-HM1" secondAttribute="centerX" id="fEu-Mt-LPl"/>
                             <constraint firstItem="Krp-WZ-jwA" firstAttribute="centerX" secondItem="axN-6d-HM1" secondAttribute="centerX" id="kGK-wz-rIM"/>
                             <constraint firstItem="x0K-dU-gff" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="keJ-wX-RJ3"/>
@@ -60,7 +68,8 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="Krp-WZ-jwA" id="KnR-sN-Pyn"/>
-                        <outlet property="questionLabel" destination="x0K-dU-gff" id="abe-c2-Z3Q"/>
+                        <outlet property="currentQuestionLabel" destination="x0K-dU-gff" id="x9Z-c6-cBl"/>
+                        <outlet property="nextQuestionLabel" destination="aPQ-xx-tay" id="SDo-AY-zZw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
