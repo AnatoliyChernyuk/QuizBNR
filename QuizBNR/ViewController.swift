@@ -11,7 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var currentQuestionLabel: UILabel!
+    @IBOutlet weak var currentQuestionLabelCenterXConstraint: NSLayoutConstraint!
     @IBOutlet weak var nextQuestionLabel: UILabel!
+    @IBOutlet weak var nextQuestionLabelCenterXConstraint: NSLayoutConstraint!
     
     var currentQuestionIndex: Int = 0
     
@@ -30,6 +32,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentQuestionLabel.text = questions[currentQuestionIndex]
+        updateOffScreenLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,12 +41,24 @@ class ViewController: UIViewController {
     }
     
     func animateLabelTransitions() {
-        UIView.animate(withDuration: 0.5, animations: {
+        view.layoutIfNeeded() //Forces any outstanding layout changes to occur
+        let screenWidth = view.bounds.width
+        nextQuestionLabelCenterXConstraint.constant = 0
+        currentQuestionLabelCenterXConstraint.constant += screenWidth
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear], animations: {
             self.currentQuestionLabel.alpha = 0
             self.nextQuestionLabel.alpha = 1
+            self.view.layoutIfNeeded()
         }) { _ in
             swap(&self.currentQuestionLabel, &self.nextQuestionLabel)
+            swap(&self.currentQuestionLabelCenterXConstraint, &self.nextQuestionLabelCenterXConstraint)
+            self.updateOffScreenLabel()
         }
+    }
+    
+    func updateOffScreenLabel() {
+        let screenWidth = view.bounds.width
+        nextQuestionLabelCenterXConstraint.constant = -screenWidth
     }
     
     @IBAction func showAnswer(_ sender: UIButton) {

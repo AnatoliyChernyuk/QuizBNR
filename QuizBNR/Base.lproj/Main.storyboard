@@ -54,12 +54,12 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="aPQ-xx-tay" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="1Ow-tc-7VV"/>
+                            <constraint firstItem="axN-6d-HM1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9eN-Wc-B2X"/>
                             <constraint firstItem="axN-6d-HM1" firstAttribute="top" secondItem="x0K-dU-gff" secondAttribute="bottom" constant="8" id="DpG-0Q-ik5"/>
                             <constraint firstItem="aPQ-xx-tay" firstAttribute="top" secondItem="x0K-dU-gff" secondAttribute="top" id="H9w-RN-5sV"/>
-                            <constraint firstItem="x0K-dU-gff" firstAttribute="centerX" secondItem="axN-6d-HM1" secondAttribute="centerX" id="fEu-Mt-LPl"/>
-                            <constraint firstItem="Krp-WZ-jwA" firstAttribute="centerX" secondItem="axN-6d-HM1" secondAttribute="centerX" id="kGK-wz-rIM"/>
                             <constraint firstItem="x0K-dU-gff" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="keJ-wX-RJ3"/>
-                            <constraint firstItem="KdK-fg-8hj" firstAttribute="centerX" secondItem="axN-6d-HM1" secondAttribute="centerX" id="klE-ON-poR"/>
+                            <constraint firstItem="Krp-WZ-jwA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="nAP-zR-VSx"/>
+                            <constraint firstItem="KdK-fg-8hj" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="rKc-ss-5ga"/>
                             <constraint firstItem="x0K-dU-gff" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="s0d-7g-6Tx"/>
                             <constraint firstItem="KdK-fg-8hj" firstAttribute="top" secondItem="Krp-WZ-jwA" secondAttribute="bottom" constant="8" id="wmX-nz-zdp"/>
                             <constraint firstItem="Krp-WZ-jwA" firstAttribute="top" secondItem="axN-6d-HM1" secondAttribute="bottom" constant="197" id="yWH-bH-KUa"/>
@@ -69,7 +69,9 @@
                     <connections>
                         <outlet property="answerLabel" destination="Krp-WZ-jwA" id="KnR-sN-Pyn"/>
                         <outlet property="currentQuestionLabel" destination="x0K-dU-gff" id="x9Z-c6-cBl"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="keJ-wX-RJ3" id="xTE-0l-hhG"/>
                         <outlet property="nextQuestionLabel" destination="aPQ-xx-tay" id="SDo-AY-zZw"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="1Ow-tc-7VV" id="W4L-ad-8Nh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
