@@ -42,9 +42,18 @@ class ViewController: UIViewController {
     
     func animateLabelTransitions() {
         view.layoutIfNeeded() //Forces any outstanding layout changes to occur
-        let screenWidth = view.bounds.width
-        nextQuestionLabelCenterXConstraint.constant = 0
-        currentQuestionLabelCenterXConstraint.constant += screenWidth
+        
+        //MARK: - Silver Challenge Chapter 8 - Block 2
+        //This is the solution to the Silver Challenge Chapter 8 instead of commented out code
+        nextQuestionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        let layoutGuide = UILayoutGuide()
+        view.addLayoutGuide(layoutGuide)
+        layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        layoutGuide.leadingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        currentQuestionLabel.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor).isActive = true
+        //let screenWidth = view.bounds.width
+        //nextQuestionLabelCenterXConstraint.constant = 0
+        //currentQuestionLabelCenterXConstraint.constant += screenWidth
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.1, options: [.curveLinear], animations: {
             self.currentQuestionLabel.alpha = 0
@@ -58,8 +67,15 @@ class ViewController: UIViewController {
     }
     
     func updateOffScreenLabel() {
-        let screenWidth = view.bounds.width
-        nextQuestionLabelCenterXConstraint.constant = -screenWidth
+        //MARK: - Silver Challenge Chapter 8 - Block 1
+        //This is the solution to the Silver Challenge Chapter 8 instead of commented out code
+        let layoutGuide = UILayoutGuide()
+        view.addLayoutGuide(layoutGuide)
+        layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        layoutGuide.trailingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        nextQuestionLabel.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor).isActive = true
+        //let screenWidth = view.bounds.width
+        //nextQuestionLabelCenterXConstraint.constant = -screenWidth
     }
     
     @IBAction func showAnswer(_ sender: UIButton) {
