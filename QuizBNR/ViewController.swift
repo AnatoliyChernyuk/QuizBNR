@@ -51,6 +51,7 @@ class ViewController: UIViewController {
         layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         layoutGuide.leadingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         currentQuestionLabel.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor).isActive = true
+        
         //let screenWidth = view.bounds.width
         //nextQuestionLabelCenterXConstraint.constant = 0
         //currentQuestionLabelCenterXConstraint.constant += screenWidth
@@ -74,6 +75,7 @@ class ViewController: UIViewController {
         layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         layoutGuide.trailingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         nextQuestionLabel.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor).isActive = true
+        
         //let screenWidth = view.bounds.width
         //nextQuestionLabelCenterXConstraint.constant = -screenWidth
     }
