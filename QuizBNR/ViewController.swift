@@ -32,12 +32,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentQuestionLabel.text = questions[currentQuestionIndex]
+        
         updateOffScreenLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        nextQuestionLabel.alpha = 0
+        //nextQuestionLabel.alpha = 0
     }
     
     func animateLabelTransitions() {
@@ -45,39 +46,54 @@ class ViewController: UIViewController {
         
         //MARK: - Silver Challenge Chapter 8 - Block 2
         //This is the solution to the Silver Challenge Chapter 8 instead of commented out code
-        nextQuestionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        let layoutGuide = UILayoutGuide()
-        view.addLayoutGuide(layoutGuide)
-        layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        layoutGuide.leadingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        currentQuestionLabel.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor).isActive = true
+        //nextQuestionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        //let layoutGuide = UILayoutGuide()
+        //view.addLayoutGuide(layoutGuide)
+        //layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        //layoutGuide.leadingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        //currentQuestionLabel.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor).isActive = true
         
         //let screenWidth = view.bounds.width
         //nextQuestionLabelCenterXConstraint.constant = 0
         //currentQuestionLabelCenterXConstraint.constant += screenWidth
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.1, options: [.curveLinear], animations: {
-            self.currentQuestionLabel.alpha = 0
-            self.nextQuestionLabel.alpha = 1
+            //self.currentQuestionLabel.alpha = 0
+            //self.nextQuestionLabel.alpha = 1
+            
+            //MARK: - Bronze Challenge Chapter 13
+            self.updateOffScreenLabel()
+            
             self.view.layoutIfNeeded()
         }) { _ in
             swap(&self.currentQuestionLabel, &self.nextQuestionLabel)
-            swap(&self.currentQuestionLabelCenterXConstraint, &self.nextQuestionLabelCenterXConstraint)
-            self.updateOffScreenLabel()
+            //swap(&self.currentQuestionLabelCenterXConstraint, &self.nextQuestionLabelCenterXConstraint)
+            //self.updateOffScreenLabel()
         }
     }
     
     func updateOffScreenLabel() {
         //MARK: - Silver Challenge Chapter 8 - Block 1
         //This is the solution to the Silver Challenge Chapter 8 instead of commented out code
-        let layoutGuide = UILayoutGuide()
-        view.addLayoutGuide(layoutGuide)
-        layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        layoutGuide.trailingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        nextQuestionLabel.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor).isActive = true
+        //let layoutGuide = UILayoutGuide()
+        //view.addLayoutGuide(layoutGuide)
+        //layoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        //layoutGuide.trailingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        //nextQuestionLabel.centerXAnchor.constraint(equalTo: layoutGuide.centerXAnchor).isActive = true
         
         //let screenWidth = view.bounds.width
         //nextQuestionLabelCenterXConstraint.constant = -screenWidth
+        
+        //MARK: - Bronze Challenge Chapter 13
+        if nextQuestionLabel.isHidden == true {
+            currentQuestionLabel.isHidden = true
+            nextQuestionLabel.isHidden = false
+        } else {
+            nextQuestionLabel.isHidden = true
+            currentQuestionLabel.isHidden = false
+        }
+        
+        
     }
     
     @IBAction func showAnswer(_ sender: UIButton) {
